@@ -1,9 +1,10 @@
 # Cyber-Cypher
-Cybersecurity project E3IN
+****Cybersecurity project E3IN****
 
-**File encryption program with AES and Tkinter**
+File encryption program with AES and Tkinter
 
 **Repository**
+
 *Once you have access to the repository, selected the folder based on your OS.*
 
 **Windows based solution**
@@ -14,7 +15,7 @@ Cybersecurity project E3IN
 
 **Linux based solution**
 
-*Use the following command to download the app.*
+*Use the following command to download the folder*
 
 ```
 git clone https://github.com/Paraziteuh/Linux-Based-Solution.git
