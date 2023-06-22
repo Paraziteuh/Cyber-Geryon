@@ -20,3 +20,7 @@ File encryption program with AES and Tkinter
 ```
 git clone https://github.com/Paraziteuh/Linux-Based-Solution.git
 ```
+Install the requirements using :
+```
+pip install -r requirements.txt
+```
