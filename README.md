@@ -5,7 +5,7 @@ File encryption program with AES and Tkinter
 
 **Repository**
 
-*Once you have access to the repository, selected the folder based on your OS.*
+*Once you have access to the repository, select the folder based on your OS.*
 
 **Windows based solution**
 
