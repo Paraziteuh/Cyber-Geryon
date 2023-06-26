@@ -1,4 +1,4 @@
-# Cyber-Cypher
+# Geryon - Orthos
 ****Cybersecurity project E3IN****
 
 File encryption program with AES and Tkinter
