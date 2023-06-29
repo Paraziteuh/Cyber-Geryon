@@ -252,7 +252,7 @@ progress_bar.place(x=10, y=490)
 update_file_listbox()
 
 # Logo
-logo_path = "logo.png"  # Chemin vers votre logo
+logo_path = "C:\\Users\\Anto\\Desktop\\projet Cyber\\Application\\logo.png"  # Chemin vers votre logo
 try:
     logo_image = Image.open(logo_path)
     logo_image = logo_image.resize((200, 200), Image.ANTIALIAS)  # Redimensionner le logo
