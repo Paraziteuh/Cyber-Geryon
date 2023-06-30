@@ -23,7 +23,7 @@ root.title("Application de chiffrement")
 root.geometry("800x600")
 
 # Connexion à la base de données
-conn = sqlite3.connect("C:\\Users\\Anto\\Desktop\\projet Cyber\\MaBaseDeDonnées.db")
+conn = sqlite3.connect("C:\\Users\\Anto\\Desktop\\projet Cyber\\MaBaseDeDonnées.db") # chemin vers la base de données
 cursor = conn.cursor()
 
 # Création de la table AESKeys si elle n'existe pas
@@ -203,7 +203,7 @@ def update_file_listbox():
         file_listbox.insert(END, file)
 
 # Encart pour afficher la clé AES générée
-aes_key_frame = LabelFrame(root, text="Clé AES")
+aes_key_frame = LabelFrame(root, text="Clé AES générée")
 aes_key_frame.place(x=10, y=10, width=560, height=60)
 
 aes_key_label = Label(aes_key_frame, text="Clé AES:")
