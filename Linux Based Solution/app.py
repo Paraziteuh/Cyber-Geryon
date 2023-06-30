@@ -13,6 +13,25 @@ import base64
 def generate_aes_key():
     return os.urandom(32)
 
+# Fonction d'enregistrement de la clé AES
+def save_aes_key(aes_key):
+    aes_key_file_path = os.path.join(encrypted_dir, 'keys.txt')
+    
+    # Lecture du compteur de clés
+    counter = 0
+    if os.path.exists(aes_key_file_path):
+        with open(aes_key_file_path, 'r') as aes_key_file:
+            lines = aes_key_file.readlines()
+            counter = len(lines)
+    
+    # Encodage de la clé AES
+    encoded_key = base64.b64encode(aes_key).decode()
+
+    # Enregistrement de la clé dans le fichier avec l'incrément du compteur
+    with open(aes_key_file_path, 'a') as aes_key_file:
+        aes_key_file.write(f'{counter+1}: {encoded_key}\n')
+
+
 # Fonction de chiffrement d'un fichier avec AES
 def encrypt_file():
     # Sélectionner les fichiers source à chiffrer
@@ -23,6 +42,9 @@ def encrypt_file():
     try:
         # Générer une clé AES
         aes_key = generate_aes_key()
+
+        # Enregistrer la clé AES dans un fichier .txt
+        save_aes_key(aes_key)
 
         for file_path in file_paths:
             # Créer un objet AES avec le mode CBC et un vecteur d'initialisation aléatoire pour chaque fichier
@@ -65,8 +87,7 @@ def encrypt_file():
         root.after(5000, reset_progress_bar)
 
         # Afficher la clé AES générée dans l'encart
-        aes_key_entry.delete(0, 'end')
-        aes_key_entry.insert(0, base64.b64encode(aes_key).decode())
+        aes_key_entry = Entry(aes_key_frame, width=50, font=('Arial', 10), show='*')
 
         # Mettre à jour la liste des fichiers sélectionnés
         update_file_listbox()
@@ -172,14 +193,8 @@ def reset_progress_bar():
     progress_bar['value'] = 0
 
 # Fonction d'enregistrement de la clé AES
-def save_aes_key(aes_key):
-    # Créer le répertoire "Fichiers Chiffrés" s'il n'existe pas
-    os.makedirs(encrypted_dir, exist_ok=True)
 
-    # Enregistrer la clé AES dans le fichier "aes_key.txt" dans le répertoire "Fichiers Chiffrés"
-    aes_key_file_path = os.path.join(encrypted_dir, 'aes_key.txt')
-    with open(aes_key_file_path, 'wb') as aes_key_file:
-        aes_key_file.write(aes_key)
+
 
 
 # Configuration de la fenêtre principale
@@ -201,6 +216,7 @@ if not os.path.exists(encrypted_dir):
 if not os.path.exists(decrypted_dir):
     os.makedirs(decrypted_dir)
 
+
 # Encart pour afficher la clé AES générée
 aes_key_frame = LabelFrame(root, text="Clé AES générée")
 aes_key_frame.place(x=10, y=10, width=560, height=60)
@@ -208,7 +224,7 @@ aes_key_frame.place(x=10, y=10, width=560, height=60)
 aes_key_label = Label(aes_key_frame, text="Clé AES:")
 aes_key_label.place(x=10, y=10)
 
-aes_key_entry = Entry(aes_key_frame, width=50)
+aes_key_entry = Entry(aes_key_frame, width=50, show="*")
 aes_key_entry.place(x=80, y=10)
 
 # Bouton de chiffrement
