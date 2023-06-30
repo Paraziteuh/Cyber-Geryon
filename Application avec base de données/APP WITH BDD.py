@@ -19,7 +19,7 @@ os.makedirs(decrypted_dir, exist_ok=True)
 
 # Création de la fenêtre principale
 root = Tk()
-root.title("Application de chiffrement")
+root.title("Orthos")
 root.geometry("800x600")
 
 # Connexion à la base de données
