@@ -184,7 +184,7 @@ def save_aes_key(aes_key):
 
 # Configuration de la fenêtre principale
 root = Tk()
-root.title("Application de chiffrement AES")
+root.title("Orthos")
 root.geometry("800x500")
 
 # Répertoire initial pour la sélection des fichiers
@@ -202,7 +202,7 @@ if not os.path.exists(decrypted_dir):
     os.makedirs(decrypted_dir)
 
 # Encart pour afficher la clé AES générée
-aes_key_frame = LabelFrame(root, text="Clé AES")
+aes_key_frame = LabelFrame(root, text="Clé AES générée")
 aes_key_frame.place(x=10, y=10, width=560, height=60)
 
 aes_key_label = Label(aes_key_frame, text="Clé AES:")
@@ -252,7 +252,7 @@ progress_bar.place(x=10, y=490)
 update_file_listbox()
 
 # Logo
-logo_path = "C:\\Users\\Anto\\Desktop\\projet Cyber\\Application\\logo.png"  # Chemin vers votre logo
+logo_path = "C:\\Users\\Anto\\Desktop\\projet Cyber\\Application\\logo.png"  # Chemin du logo
 try:
     logo_image = Image.open(logo_path)
     logo_image = logo_image.resize((200, 200), Image.ANTIALIAS)  # Redimensionner le logo
