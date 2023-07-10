@@ -26,5 +26,5 @@ pip install -r requirements.txt
 ```
 Start the tool using : 
 ```
-python3 -m orthos.py
+python3 orthos.py
 ```
